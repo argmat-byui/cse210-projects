@@ -24,11 +24,14 @@ abstract class Activity
 
     public abstract double GetDistance();
 
+    // GetSpeed needs to be overriden by the Cycling Activity, but other activities can just use this implementation.
     public virtual double GetSpeed()
     {
         return GetDistance() / GetDuration() * 60;
     }
 
+
+    // GetPace doesn't need to have a different implementation in each derived class, that's why I'm not making this virtual.
     public double GetPace()
     {
         return GetDuration() / GetDistance();
